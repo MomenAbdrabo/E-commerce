@@ -1,6 +1,5 @@
 import { couponModel } from "../../../../DB/models/coupon.model.js"
 import Cloudinary from "../../../utlis/Cloudinary.js"
-import chalk from 'chalk';
 
 
 export const createCoupon=async(req,res,next)=>{
