@@ -31,6 +31,9 @@ export const initApp=(app,express)=>{
 
     app.use(express.json({}))
     app.use(morgan('dev'))
+    app.get('/', (req, res) => {
+        res.send('Welcome to the API');
+      });
     app.use('/auth',authRouter)
     app.use('/coupon',couponRouter)
     app.use('/category',categorRouter)
