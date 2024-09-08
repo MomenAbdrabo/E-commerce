@@ -51,6 +51,7 @@ export const initApp=(app,express)=>{
     app.use('/product',productRouter)
     app.use('/cart',cartRouter)
     app.use('/order',orderRouter)
+    app.use(express.static('public'));
     app.all('*',(req,res,next)=>{
         return next(new Error(`route not found:${req.originalUrl}`,{cause:404}))
     })
