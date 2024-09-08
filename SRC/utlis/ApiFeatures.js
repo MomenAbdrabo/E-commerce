@@ -34,6 +34,7 @@ class ApiFeature{
         return this
     }
     search(){
+        if(this.queryData.search){
         this.mongooseQuery.find(
             {
                 $or:[
@@ -41,7 +42,7 @@ class ApiFeature{
                     {description:{$regex:this.queryData.search,$options:'i'}}
                 ]
             }
-        )
+        )}
         return this
     }
     select(){

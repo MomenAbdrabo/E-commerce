@@ -1,10 +1,11 @@
 import { Router } from "express";
-import { cancelOrder, createOrder, deliveredlOrder} from "./controller/Order.js";
+import { cancelOrder, createOrder, deliveredlOrder, webhook} from "./controller/Order.js";
 import { errorHandler } from "../../utlis/errorHandling.js";
 import { auth } from "../../middleware/authorization.js";
 import { endPoint } from "./order.endPoint.js";
 import { canselOrderSchema, createOrderSchema, deliveredlOrderSchema } from "./validationSchema.js";
 import { Validation } from "../../middleware/validation.js";
+import express from 'express'
 
 export const orderRouter=Router()
 
@@ -24,3 +25,7 @@ orderRouter.put('/:orderId/admin',
     Validation(deliveredlOrderSchema),
     errorHandler(deliveredlOrder))
 
+    // webhook
+    orderRouter.post('/webhook',
+         express.raw({type: 'application/json'}),
+         errorHandler(webhook))

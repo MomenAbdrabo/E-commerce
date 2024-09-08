@@ -27,9 +27,17 @@ export const initApp=(app,express)=>{
 // }
 
     app.use(cors({}))
+    
+    app.use((req,res,next)=>{
+
+        if(req.originalUrl=='/order/webhook'){
+            next()
+        }else{
+            express.json({})(req,res,next)
+        }
+    })
 
 
-    app.use(express.json({}))
     app.use(morgan('dev'))
    
     app.get('/', (req, res) => {

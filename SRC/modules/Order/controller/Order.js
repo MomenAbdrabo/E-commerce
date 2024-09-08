@@ -139,11 +139,9 @@ export const createOrder=async(req,res,next)=>{
     if(order.paymentType=="card"){
         const stripe=new Stripe(process.env.STRIPE_KEY)
         if(req.body.coupon){
-            console.log(req.body.coupon.disCount,req.body.coupon);
 
         const {id}=await stripe.coupons.create({percent_off:req.body.coupon.disCount,duration:'once'})
         req.body.couponId=id
-       console.log(req.body.couponId);
        
     }
         
@@ -154,7 +152,7 @@ export const createOrder=async(req,res,next)=>{
             orderId:order._id.toString()
         },
         cancel_url:`${process.env.CANCEL_URL}?orderId=${order._id.toString()}`,
-        success_url:`${process.env.SUCCESS_URL}?orderId=${order._id.toString()}/admin`,
+        success_url:`${process.env.SUCCESS_URL}${order._id.toString()}/admin`,
         line_items:order.products.map(product=>{ 
             return {
                 price_data:{
@@ -232,3 +230,28 @@ export const deliveredlOrder=async(req,res,next)=>{
     res.status(201).json({message:`oreder status ${order.status}` })   
 
 }
+//================ webhook =================//
+
+export const webhook=async(req, res) => {
+    const stripe=new Stripe(process.env.STRIPE_KEY)
+    const sig = req.headers['stripe-signature'];
+
+    let event;
+  
+    try {
+      event = stripe.webhooks.constructEvent(req.body, sig, process.env.endpointSecret);
+    }
+    catch (err) {
+      res.status(400).send(`Webhook Error: ${err.message}`);
+    }
+  
+    // Handle the event
+    const{orderId}=event.data.object.metadata
+    if(event.type=='checkout.session.completed'){
+        await orderModel.updateOne({_id:orderId},{status:"rejected"})
+        return res.status(400).json({message:'rejected order'})
+    }
+        await orderModel.updateOne({_id:orderId},{status:"on way"})
+        return res.status(200).json({message:'done'})
+
+  }
