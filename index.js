@@ -10,7 +10,4 @@ const port =process.env.PORT||3000
 
 initApp(app,express)
 
-app.get('/', (req, res) => {
-    res.send('Welcome to the API');
-  });
 app.listen(port, () => console.log(chalk.blue(`Example app listening on port ${port}!`)))

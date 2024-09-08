@@ -32,6 +32,9 @@ export const initApp=(app,express)=>{
     app.use(express.json({}))
     app.use(morgan('dev'))
    
+    app.get('/', (req, res) => {
+        res.send('Welcome to the API');
+    });
     app.use('/auth',authRouter)
     app.use('/coupon',couponRouter)
     app.use('/category',categorRouter)
@@ -40,7 +43,7 @@ export const initApp=(app,express)=>{
     app.use('/product',productRouter)
     app.use('/cart',cartRouter)
     app.use('/order',orderRouter)
-    app.use('*',(req,res,next)=>{
+    app.all('*',(req,res,next)=>{
         return next(new Error(`route not found:${req.originalUrl}`,{cause:404}))
     })
     app.use(globalErrorHandling)
