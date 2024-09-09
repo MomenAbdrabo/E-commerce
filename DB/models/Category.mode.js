@@ -39,7 +39,7 @@ const categorySchema=new Schema({
 
 categorySchema.virtual('subcategory',{
     localField:'_id',
-    foreignField:'category',
+    foreignField:'categoryId',
     ref:'Subcategory'
 })
 
