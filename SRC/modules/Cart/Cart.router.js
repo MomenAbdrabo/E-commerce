@@ -7,7 +7,7 @@ import { creatCartSchema, deleteItemSchema } from "./validationSchema.js";
 import { auth } from "../../middleware/authorization.js";
 
 
-export const cartRouter=Router()
+export const cartRouter = Router()
 
 
 cartRouter.post('/addToCart',
@@ -15,12 +15,12 @@ cartRouter.post('/addToCart',
     Validation(creatCartSchema),
     errorHandler(createCart))
 
-cartRouter.post('/deleteItem',
+cartRouter.patch('/deleteItem',
     auth(endPoint.create),
     Validation(deleteItemSchema),
     errorHandler(deleteItem))
 
-cartRouter.post('/clearCart',
+cartRouter.put('/clearCart',
     auth(endPoint.create),
     errorHandler(clearCart))
 

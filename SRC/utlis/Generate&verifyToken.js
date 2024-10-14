@@ -6,12 +6,12 @@ export const generateToken = ({ payload = {}, signature = process.env.signatureT
     return token
 }
 
-export const verifyToken = ({ token , signature = process.env.TOKEN_SIGNATURE } = {}) => {
-    try{
-    const decoded =  jwt.verify(token, signature);
-    return decoded
+export const verifyToken = ({ token, signature = process.env.TOKEN_SIGNATURE } = {}) => {
+    try {
+        const decoded = jwt.verify(token, signature);
+        return decoded
     } catch (err) {
-        
+
         return { error: err };
     }
 }

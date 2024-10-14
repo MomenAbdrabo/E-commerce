@@ -51,7 +51,7 @@ const orderSchema=new Schema({
     },
     status:{
         type:String,
-        default:'placed',
+        default:'wait payment',
         enum:['wait payment','placed','on way','cancelled','rejected','delivered']
     },
     reason:String,

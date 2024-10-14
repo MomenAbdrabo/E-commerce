@@ -1,19 +1,19 @@
 import Stripe from "stripe";
 
 
- async function payment({
-        stripe=new Stripe(process.env.STRIPE_KEY),
-        payment_method_types=["card"],
-        mode='payment',
-        customer_email,
-        cancel_url=process.env.CANCEL_URL,
-        success_url=process.env.SUCCESS_URL,
-        metadata={},
-        line_items=[],
-        discounts=[],
+async function payment({
+    stripe = new Stripe(process.env.STRIPE_KEY),
+    payment_method_types = ["card"],
+    mode = 'payment',
+    customer_email,
+    cancel_url = process.env.CANCEL_URL,
+    success_url = process.env.SUCCESS_URL,
+    metadata = {},
+    line_items = [],
+    discounts = [],
 
-    }={}) {
-    const session=stripe.checkout.sessions.create({
+} = {}) {
+    const session = stripe.checkout.sessions.create({
         payment_method_types,
         mode,
         customer_email,
@@ -26,7 +26,7 @@ import Stripe from "stripe";
     })
     return session
 }
-     export default payment
+export default payment
 /*
 [{
             price_data={

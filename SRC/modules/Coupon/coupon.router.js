@@ -7,7 +7,7 @@ import { errorHandler } from "../../utlis/errorHandling.js";
 import { auth } from "../../middleware/authorization.js";
 import { endPoint } from "./Coupon.endPoint.js";
 
-export const couponRouter=Router()
+export const couponRouter = Router()
 
 
 couponRouter.post('/create',

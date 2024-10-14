@@ -11,22 +11,22 @@ import { reviewRouter } from "../Review/review.router.js";
 export const productRouter = Router()
 //=============== review router =============//
 
-productRouter.use('/:productId',reviewRouter)
+productRouter.use('/:productId', reviewRouter)
 
 //=============== product ===============//
 productRouter.get('/', errorHandler(getproduct))
 productRouter.post('/createProduct',
     auth(endPoint.create),
     fileUplouder(FileValidation.image).fields([
-        {name:'mainImage'},
-        {name:'subImage'}
-    ]),Validation(creatProductSchema),
+        { name: 'mainImage' },
+        { name: 'subImage' }
+    ]), Validation(creatProductSchema),
     errorHandler(createproduct))
 
- productRouter.put('/:productyId',
-     auth(endPoint.update),
-     fileUplouder(FileValidation.image).fields([
-        {name:'mainImage'},
-        {name:'subImage'}
-    ]),Validation(updateProductSchema),
-     errorHandler(updateProduct))
+productRouter.put('/:productyId',
+    auth(endPoint.update),
+    fileUplouder(FileValidation.image).fields([
+        { name: 'mainImage' },
+        { name: 'subImage' }
+    ]), Validation(updateProductSchema),
+    errorHandler(updateProduct))

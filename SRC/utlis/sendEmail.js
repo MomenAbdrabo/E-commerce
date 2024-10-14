@@ -20,7 +20,7 @@ async function sendEmail({ to, cc, bcc, subject, html, attachments = [] } = {}) 
         attachments
     });
 
- 
+
     return info.rejected.length ? false : true
 }
 

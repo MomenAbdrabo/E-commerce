@@ -46,7 +46,7 @@ function generateCustomerInformation(doc, invoice) {
     .text(formatDate(new Date(invoice.date)), 150, customerInformationTop + 15)
     .text("Balance Due:", 50, customerInformationTop + 30)
     .text(
-      formatCurrency( invoice.total),
+      formatCurrency(invoice.total),
       150,
       customerInformationTop + 30
     )
@@ -57,10 +57,10 @@ function generateCustomerInformation(doc, invoice) {
     .text(invoice.shipping.address, 300, customerInformationTop + 15)
     .text(
       invoice.shipping.city +
-        ", " +
-        invoice.shipping.state +
-        ", " +
-        invoice.shipping.country,
+      ", " +
+      invoice.shipping.state +
+      ", " +
+      invoice.shipping.country,
       300,
       customerInformationTop + 30
     )
@@ -92,9 +92,9 @@ function generateInvoiceTable(doc, invoice) {
       doc,
       position,
       item.productName,
-      formatCurrency(item.unitPrice *100),
+      formatCurrency(item.unitPrice * 100),
       item.quantity,
-      formatCurrency(item.totalPrice*100)
+      formatCurrency(item.totalPrice * 100)
     );
 
     generateHr(doc, position + 20);
@@ -131,7 +131,7 @@ function generateInvoiceTable(doc, invoice) {
     "",
     "Balance Due",
     "",
-    formatCurrency( invoice.total)
+    formatCurrency(invoice.total)
   );
   doc.font("Helvetica");
 }

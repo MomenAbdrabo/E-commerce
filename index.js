@@ -1,13 +1,12 @@
 import express from 'express'
-import { initApp } from './SRC/initApp.js'
 import dotenv from 'dotenv'
-import chalk from 'chalk'
+import { initApp } from './SRC/initApp.js'
 dotenv.config()
 
 const app = express()
-const port =process.env.PORT||3000
+const port = process.env.PORT || 3000
 
 
-initApp(app,express)
+initApp(app)
 
-app.listen(port, () => console.log(chalk.blue(`Example app listening on port ${port}!`)))
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
