@@ -1,5 +1,5 @@
 import { brandModel } from "../../../DB/models/brand.mode.js"
-import Cloudinary from "../../../utlis/Cloudinary.js"
+import Cloudinary from "../../../utils/Cloudinary.js"
 
 
 

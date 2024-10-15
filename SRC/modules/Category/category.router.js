@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { fileUplouder, FileValidation } from "../../utlis/Multer.js";
+import { fileUplouder, FileValidation } from "../../utils/Multer.js";
 import { getCategory, createCategory, updateCategory } from "./controller/category.js";
-import { errorHandler } from "../../utlis/errorHandling.js";
+import { errorHandler } from "../../utils/errorHandling.js";
 import { Validation } from "../../middleware/validation.js";
 import { creatCatcgorySchema, updateCatcgorySchema } from "./validationSchema.js";
 import { auth } from "../../middleware/authorization.js";

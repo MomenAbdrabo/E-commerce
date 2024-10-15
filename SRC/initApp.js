@@ -8,10 +8,11 @@ import { couponRouter } from './modules/Coupon/coupon.router.js'
 import { orderRouter } from './modules/Order/order.router.js'
 import { productRouter } from './modules/Product/product.router.js'
 import { userRouter } from './modules/User/user.router.js'
-import { globalErrorHandling } from './utlis/errorHandling.js'
+import { globalErrorHandling } from './utils/errorHandling.js'
 import morgan from 'morgan'
 import cors from 'cors'
 import { limiter } from './middleware/rateLimit.js'
+import { removeUnverifiedEmails } from './utils/removeUnverifiedEmails.js'
 
 
 export const initApp = (app) => {
@@ -52,7 +53,7 @@ export const initApp = (app) => {
     app.use('/product', productRouter)
     app.use('/cart', cartRouter)
     app.use('/order', orderRouter)
-    app.use(express.static('public'));
+    removeUnverifiedEmails()
     app.all('*', (req, res, next) => {
         return next(new Error(`route not found:${req.originalUrl}`, { cause: 404 }))
     })

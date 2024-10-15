@@ -1,7 +1,7 @@
 import { userModel } from "../../../DB/models/user.model.js"
-import sendEmail from "../../../utlis/sendEmail.js"
-import { generateToken, verifyToken } from "../../../utlis/Generate&verifyToken.js"
-import { compare, hash } from "../../../utlis/Hash&combare.js"
+import sendEmail from "../../../utils/sendEmail.js"
+import { generateToken, verifyToken } from "../../../utils/Generate&verifyToken.js"
+import { compare, hash } from "../../../utils/Hash&combare.js"
 import { customAlphabet } from "nanoid"
 
 

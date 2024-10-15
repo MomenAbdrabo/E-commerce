@@ -1,8 +1,8 @@
 import { Router } from "express";
 
-import { errorHandler } from "../../utlis/errorHandling.js";
+import { errorHandler } from "../../utils/errorHandling.js";
 import { Validation } from "../../middleware/validation.js";
-import { fileUplouder, FileValidation } from "../../utlis/Multer.js";
+import { fileUplouder, FileValidation } from "../../utils/Multer.js";
 import { createSubcategorySchema, updateSubcategorySchema } from "./validationSchema.js";
 import { auth } from "../../middleware/authorization.js";
 import { endPoint } from "./subCategory.endPoint.js";

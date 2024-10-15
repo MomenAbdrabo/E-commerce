@@ -3,8 +3,8 @@ import { cartModel } from "../../../DB/models/cart.model.js"
 import { couponModel } from "../../../DB/models/coupon.model.js"
 import { orderModel } from "../../../DB/models/order.model.js"
 import { productModel } from "../../../DB/models/product.model.js"
-import payment from "../../../utlis/payment.js"
-import { createInvoice } from "../../../utlis/pdf.js"
+import payment from "../../../utils/payment.js"
+import { createInvoice } from "../../../utils/pdf.js"
 import { deleteItemFromCart, emptyCart } from "../../Cart/controller/Cart.js"
 
 //===================== ف حالة اني بضيف من cart or req.body==========//
@@ -219,7 +219,7 @@ export const deliveredlOrder = async (req, res, next) => {
     const order = await orderModel.findOne({ _id: orderId })
     if (!order) {
         return next(new Error('not founded that order check id ', { cause: 404 }))
-    } else if ([ 'cancelled', 'rejected'].includes(order.status)) {
+    } else if (['cancelled', 'rejected'].includes(order.status)) {
 
         return next(new Error(`not I can\'t cansel order after changed to ${order.status}  `, { cause: 404 }))
 

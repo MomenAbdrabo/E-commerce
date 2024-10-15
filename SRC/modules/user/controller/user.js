@@ -1,7 +1,7 @@
 import { productModel } from "../../../DB/models/product.model.js"
 import { userModel } from "../../../DB/models/user.model.js"
-import Cloudinary from "../../../utlis/Cloudinary.js"
-import { compare, hash } from "../../../utlis/Hash&combare.js"
+import Cloudinary from "../../../utils/Cloudinary.js"
+import { compare, hash } from "../../../utils/Hash&combare.js"
 
 
 

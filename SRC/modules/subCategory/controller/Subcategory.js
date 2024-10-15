@@ -1,6 +1,6 @@
 import { categoryModel } from "../../../DB/models/category.mode.js"
 import { SubcategoryModel } from "../../../DB/models/Subcategory.model.js"
-import Cloudinary from "../../../utlis/Cloudinary.js"
+import Cloudinary from "../../../utils/Cloudinary.js"
 import slugify from "slugify"
 
 

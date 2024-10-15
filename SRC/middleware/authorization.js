@@ -1,5 +1,5 @@
 import { userModel } from "../DB/models/user.model.js"
-import { verifyToken } from "../utlis/Generate&verifyToken.js"
+import { verifyToken } from "../utils/Generate&verifyToken.js"
 
 export const roles = {
     Admin: 'admin',

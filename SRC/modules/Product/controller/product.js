@@ -1,9 +1,9 @@
 import { brandModel } from "../../../DB/models/brand.mode.js"
 import { productModel } from "../../../DB/models/product.model.js"
 import { SubcategoryModel } from "../../../DB/models/Subcategory.model.js"
-import Cloudinary from "../../../utlis/Cloudinary.js"
+import Cloudinary from "../../../utils/Cloudinary.js"
 import slugify from "slugify"
-import ApiFeatures from "../../../utlis/ApiFeatures.js"
+import ApiFeatures from "../../../utils/ApiFeatures.js"
 
 
 export const getproduct = async (req, res, next) => {

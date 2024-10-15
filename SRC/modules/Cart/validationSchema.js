@@ -4,7 +4,7 @@ import { generalValidation } from "../../middleware/validation.js";
 
 
 
-export const creatCartSchema = joi.object({
+export const createCartSchema = joi.object({
 
     quantity: joi.number().integer(),
     productId: generalValidation.id.required(),

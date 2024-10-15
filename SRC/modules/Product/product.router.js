@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { createproduct, getproduct, updateProduct } from "./controller/product.js";
-import { errorHandler } from "../../utlis/errorHandling.js";
-import { fileUplouder, FileValidation } from "../../utlis/Multer.js";
+import { errorHandler } from "../../utils/errorHandling.js";
+import { fileUplouder, FileValidation } from "../../utils/Multer.js";
 import { Validation } from "../../middleware/validation.js";
 import { creatProductSchema, updateProductSchema } from "./validationSchema.js";
 import { endPoint } from "./product.endPoint.js";

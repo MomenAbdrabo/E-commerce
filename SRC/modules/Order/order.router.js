@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { cancelOrder, createOrder, deliveredlOrder, webhook } from "./controller/Order.js";
-import { errorHandler } from "../../utlis/errorHandling.js";
+import { errorHandler } from "../../utils/errorHandling.js";
 import { auth } from "../../middleware/authorization.js";
 import { endPoint } from "./order.endPoint.js";
 import { canselOrderSchema, createOrderSchema, deliveredlOrderSchema } from "./validationSchema.js";

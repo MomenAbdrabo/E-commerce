@@ -1,10 +1,10 @@
 import { Router } from "express";
 import { endPoint } from "./user.endPoint.js";
-import { fileUplouder, FileValidation } from "../../utlis/Multer.js";
+import { fileUplouder, FileValidation } from "../../utils/Multer.js";
 import { Validation } from "../../middleware/validation.js";
 import { updateProfileSchema, wishListSchema } from "./validationSchema.js";
 import { auth } from "../../middleware/authorization.js";
-import { errorHandler } from "../../utlis/errorHandling.js";
+import { errorHandler } from "../../utils/errorHandling.js";
 import * as userController from "./controller/user.js";
 
 

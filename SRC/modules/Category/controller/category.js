@@ -1,5 +1,5 @@
 import { categoryModel } from "../../../DB/models/category.mode.js"
-import Cloudinary, { uploader } from "../../../utlis/Cloudinary.js"
+import Cloudinary, { uploader } from "../../../utils/Cloudinary.js"
 import slugify from "slugify"
 
 
@@ -22,10 +22,10 @@ export const createCategory = async (req, res, next) => {
         return next(new Error(`Duplicate category name: ${name}`), { cause: 409 });
     }
     //const { public_id, secure_url } = await Cloudinary.uploader.upload(req.file.path, { folder: `${process.env.APP_NAME}/category` })
-    
-   
+
+
     const { public_id, secure_url } = await uploader({ path: req.file.path, folderPath: 'category' })
-    
+
     const category = await categoryModel.create(
         {
             name,

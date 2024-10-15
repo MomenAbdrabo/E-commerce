@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { fileUplouder, FileValidation } from "../../utlis/Multer.js";
-import { errorHandler } from "../../utlis/errorHandling.js";
+import { fileUplouder, FileValidation } from "../../utils/Multer.js";
+import { errorHandler } from "../../utils/errorHandling.js";
 import { Validation } from "../../middleware/validation.js";
 import { creatBrandSchema, updateBrandSchema } from "./validationSchema.js"
 import * as BrandController from "./controller/Brand.js";
@@ -17,14 +17,14 @@ export const brandRouter = Router()
 //     errorHandler(createBrand))
 
 brandRouter
-.route('/')
+        .route('/')
         .get(errorHandler(BrandController.getBrand))
-.post(
-        auth(endPoint.create),
-        fileUplouder(FileValidation.image).single('image'), Validation(creatBrandSchema),
-        errorHandler(BrandController.createBrand))
+        .post(
+                auth(endPoint.create),
+                fileUplouder(FileValidation.image).single('image'), Validation(creatBrandSchema),
+                errorHandler(BrandController.createBrand))
 
 brandRouter.put('/:brandId',
-    auth(endPoint.create),
-    fileUplouder(FileValidation.image).single('image'), Validation(updateBrandSchema),
+        auth(endPoint.create),
+        fileUplouder(FileValidation.image).single('image'), Validation(updateBrandSchema),
         errorHandler(BrandController.updateBrand))

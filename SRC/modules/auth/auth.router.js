@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { errorHandler } from "../../utlis/errorHandling.js";
+import { errorHandler } from "../../utils/errorHandling.js";
 import * as authController from "./controller/auth.js";
 import { confirmEmailSchema, loginSchema, resetPasswordSchema, sendCodeSchema, signupSchema } from "./validationSchema.js";
 import { Validation } from "../../middleware/validation.js";
