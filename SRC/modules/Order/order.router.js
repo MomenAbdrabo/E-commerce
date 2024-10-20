@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { cancelOrder, createOrder, deliveredlOrder, webhook } from "./controller/Order.js";
+import { cancelOrder, createOrder, deliveredOrder, webhook } from "./controller/Order.js";
 import { errorHandler } from "../../utils/errorHandling.js";
 import { auth } from "../../middleware/authorization.js";
 import { endPoint } from "./order.endPoint.js";
-import { canselOrderSchema, createOrderSchema, deliveredlOrderSchema } from "./validationSchema.js";
+import { cancelOrderSchema, createOrderSchema, deliveredOrderSchema } from "./validationSchema.js";
 import { Validation } from "../../middleware/validation.js";
 import express from 'express'
 
@@ -16,14 +16,14 @@ orderRouter.post('/create',
     errorHandler(createOrder))
 
 orderRouter.put('/:orderId',
-    auth(endPoint.canselOrder),
-    Validation(canselOrderSchema),
+    auth(endPoint.cancelOrder),
+    Validation(cancelOrderSchema),
     errorHandler(cancelOrder))
 
 orderRouter.put('/:orderId/admin',
-    auth(endPoint.deliveredlOrder),
-    Validation(deliveredlOrderSchema),
-    errorHandler(deliveredlOrder))
+    auth(endPoint.deliveredOrder),
+    Validation(deliveredOrderSchema),
+    errorHandler(deliveredOrder))
 
 // webhook
 orderRouter.post('/webhook',

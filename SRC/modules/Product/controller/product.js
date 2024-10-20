@@ -6,7 +6,7 @@ import slugify from "slugify"
 import ApiFeatures from "../../../utils/ApiFeatures.js"
 
 
-export const getproduct = async (req, res, next) => {
+export const getProduct = async (req, res, next) => {
 
     const ApiFeature = new ApiFeatures(req.query, productModel.find().populate([{
         path: 'review'
@@ -47,7 +47,7 @@ export const getproduct = async (req, res, next) => {
 
 }
 
-export const createproduct = async (req, res, next) => {
+export const createProduct = async (req, res, next) => {
 
     const { name, discount, categoryId, subCategoryId, price, brandId } = req.body
 
@@ -88,7 +88,7 @@ export const createproduct = async (req, res, next) => {
 
 export const updateProduct = async (req, res, next) => {
 
-    const product = await productModel.findById(req.params.productyId)
+    const product = await productModel.findById(req.params.productId)
     if (!product) {
         return next(new Error('in_valid product id', { cause: 400 }))
     }
@@ -132,8 +132,8 @@ export const updateProduct = async (req, res, next) => {
 
     }
 
-    if (req.body.stok) {
-        product.stok = req.body.stok
+    if (req.body.stock) {
+        product.stock = req.body.stock
     }
     await product.save()
 

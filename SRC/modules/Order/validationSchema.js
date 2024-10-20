@@ -19,13 +19,13 @@ export const createOrderSchema = joi.object({
 }).required()
 
 
-export const canselOrderSchema = joi.object({
+export const cancelOrderSchema = joi.object({
     orderId: generalValidation.id,
     reason: joi.string().required(),
 
 }).required()
 
-export const deliveredlOrderSchema = joi.object({
+export const deliveredOrderSchema = joi.object({
     orderId: generalValidation.id,
     status: joi.string().valid('on way', 'delivered').required(),
 

@@ -6,7 +6,7 @@ export const roles = {
     User: 'user',
 }
 
-export const auth = (accesRole = []) => {
+export const auth = (accessRole = []) => {
     return async (req, res, next) => {
         const { authorization } = req.headers
 
@@ -27,7 +27,7 @@ export const auth = (accesRole = []) => {
             return next(new Error(`token expired `), { cause: 400 })
 
         }
-        if (!accesRole.includes(user.role)) {
+        if (!accessRole.includes(user.role)) {
             return next(new Error('not authorized user '), { cause: 403 })
         }
 

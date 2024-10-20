@@ -3,7 +3,7 @@ import { generalValidation } from '../../middleware/validation.js'
 
 
 
-export const creatProductSchema = joi.object({
+export const createProductSchema = joi.object({
     name: joi.string().min(2).max(30).required(),
     descreption: joi.string().min(2).max(150).required(),
     price: joi.number().positive().min(1).required(),
@@ -26,7 +26,7 @@ export const creatProductSchema = joi.object({
 
 
 export const updateProductSchema = joi.object({
-    productyId: generalValidation.id.required(),
+    productId: generalValidation.id.required(),
     name: joi.string().min(2).max(30),
     descreption: joi.string().min(2).max(150),
     price: joi.number().positive().min(1),

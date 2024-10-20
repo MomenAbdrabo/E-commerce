@@ -82,9 +82,9 @@ export const createOrder = async (req, res, next) => {
         productList.push(product)
 
     }
-    // calac final price after discount 
+    // calc final price after discount 
     let finalPrice = parseFloat(totalPrice - (totalPrice * ((req.body.coupon?.disCount || 0) / 100)));
-    //creat order
+    //create order
     const order = await orderModel.create(
         {
             userId: req.user._id,
@@ -97,7 +97,7 @@ export const createOrder = async (req, res, next) => {
             totalPrice,
             finalPrice,
             paymentType,
-            status: paymentType == 'cash' ? 'wait payment' : 'placed'
+            status: paymentType == 'card' ? 'wait payment' : 'placed'
         }
     )
     // تنزيل الكميه من ال stok
@@ -139,7 +139,6 @@ export const createOrder = async (req, res, next) => {
     if (order.paymentType == "card") {
         const stripe = new Stripe(process.env.STRIPE_KEY)
         if (req.body.coupon) {
-
             const { id } = await stripe.coupons.create({ percent_off: req.body.coupon.disCount, duration: 'once' })
             req.body.couponId = id
 
@@ -207,13 +206,13 @@ export const cancelOrder = async (req, res, next) => {
         await couponModel.updateOne({ _id: req.body.coupon._id }, { $pull: { usedBy: req.user._id } })
     }
 
-    return res.status(200).json({ message: 'canselled order' })
+    return res.status(200).json({ message: 'cancelled order' })
 }
 
 
-//================= updete order to be delvered order ==========//
+//================= update order to be delivered order ==========//
 
-export const deliveredlOrder = async (req, res, next) => {
+export const deliveredOrder = async (req, res, next) => {
     const { orderId } = req.params
     const { status } = req.body
     const order = await orderModel.findOne({ _id: orderId })
@@ -221,13 +220,13 @@ export const deliveredlOrder = async (req, res, next) => {
         return next(new Error('not founded that order check id ', { cause: 404 }))
     } else if (['cancelled', 'rejected'].includes(order.status)) {
 
-        return next(new Error(`not I can\'t cansel order after changed to ${order.status}  `, { cause: 404 }))
+        return next(new Error(`not I can\'t cancel order after changed to ${order.status}  `, { cause: 404 }))
 
     }
 
     order.status = status
     order.save()
-    res.status(201).json({ message: `oreder status ${order.status}` })
+    res.status(201).json({ message: `order status ${order.status}` })
 
 }
 //================ webhook =================//
@@ -251,7 +250,7 @@ export const webhook = async (req, res) => {
         await orderModel.updateOne({ _id: orderId }, { status: "rejected" })
         return res.status(400).json({ message: 'rejected order' })
     }
-    await orderModel.updateOne({ _id: orderId }, { status: "placed" })
+    await orderModel.updateOne({ _id: orderId }, { status: 'placed' })
     return res.status(200).json({ message: 'done' })
 
 }

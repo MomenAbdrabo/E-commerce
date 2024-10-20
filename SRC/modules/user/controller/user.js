@@ -60,7 +60,6 @@ export const updateProfile = async (req, res, next) => {
 
 }
 
-
 export const addToWishList = async (req, res, next) => {
     const { productId } = req.params
 

@@ -13,6 +13,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 import { limiter } from './middleware/rateLimit.js'
 import { removeUnverifiedEmails } from './utils/removeUnverifiedEmails.js'
+import { salesRouter } from './modules/sales.analysis/salesReport.routers.js'
 
 
 export const initApp = (app) => {
@@ -53,6 +54,7 @@ export const initApp = (app) => {
     app.use('/product', productRouter)
     app.use('/cart', cartRouter)
     app.use('/order', orderRouter)
+    app.use('/salesReport', salesRouter)
     removeUnverifiedEmails()
     app.all('*', (req, res, next) => {
         return next(new Error(`route not found:${req.originalUrl}`, { cause: 404 }))

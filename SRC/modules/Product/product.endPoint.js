@@ -4,6 +4,6 @@ import { roles } from "../../middleware/authorization.js";
 
 
 export const endPoint = {
-    create: [roles.Admin, roles.User],
-    update: [roles.Admin, roles.User]
+    create: [roles.Admin],
+    update: [roles.Admin]
 }

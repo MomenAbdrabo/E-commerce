@@ -4,7 +4,7 @@ import { generalValidation } from "../../middleware/validation.js";
 
 
 
-export const creatCouponSchema = joi.object({
+export const createCouponSchema = joi.object({
     code: joi.string().min(2).max(12).required(),
     disCount: joi.number().positive().min(1).max(100).required(),
     expireDate: joi.date().greater(new Date()).required(),
