@@ -8,26 +8,26 @@ import { errorHandler } from "../../utils/errorHandling.js";
 import * as userController from "./controller/user.js";
 
 
-export const userRouter = Router()
+export const usersRouter = Router()
 
-userRouter.patch('/updateProfile',
+usersRouter.patch('/updateProfile',
         auth(endPoint.update),
         fileUplouder(FileValidation.image).single('image'),
         Validation(updateProfileSchema),
         errorHandler(userController.updateProfile))
 
-userRouter.put('/:productId/addToWishList',
+usersRouter.put('/:productId/addToWishList',
         auth(endPoint.wishList),
         Validation(wishListSchema),
         errorHandler(userController.addToWishList))
 
 
-userRouter.get('/wishList',
+usersRouter.get('/wishList',
         auth(endPoint.wishList),
         errorHandler(userController.getWishList))
 
 
-userRouter.put('/:productId/removerFromWishList',
+usersRouter.put('/:productId/removerFromWishList',
         auth(endPoint.wishList),
         Validation(wishListSchema),
         errorHandler(userController.removerFromWishList))

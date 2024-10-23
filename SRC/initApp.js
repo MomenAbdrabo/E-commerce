@@ -7,7 +7,7 @@ import { categorRouter } from './modules/Category/category.router.js'
 import { couponRouter } from './modules/Coupon/coupon.router.js'
 import { orderRouter } from './modules/Order/order.router.js'
 import { productRouter } from './modules/Product/product.router.js'
-import { userRouter } from './modules/User/user.router.js'
+import { usersRouter }from './modules/User/user.router.js'
 import { globalErrorHandling } from './utils/errorHandling.js'
 import morgan from 'morgan'
 import cors from 'cors'
@@ -50,7 +50,7 @@ export const initApp = (app) => {
     app.use('/coupon', couponRouter)
     app.use('/category', categorRouter)
     app.use('/brand', brandRouter)
-    app.use('/user', userRouter)
+    app.use('/user', usersRouter)
     app.use('/product', productRouter)
     app.use('/cart', cartRouter)
     app.use('/order', orderRouter)

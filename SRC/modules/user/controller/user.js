@@ -16,7 +16,7 @@ export const updateProfile = async (req, res, next) => {
             return next(new Error(`old userName same new userName`), { cause: 400 })
         }
         if (await userModel.findOne({ userName: req.body.userName })) {
-            return next(new Error(`doublicate category userName ${req.body.userName} `), { cause: 409 })
+            return next(new Error(`duplicate category userName ${req.body.userName} `), { cause: 409 })
         }
         user.userName = req.body.userName
     }
@@ -94,7 +94,7 @@ export const removerFromWishList = async (req, res, next) => {
 
     const remover = await userModel.updateOne({ _id: req.user._id }, { $pull: { washList: productId } })
     if (!remover.modifiedCount) {
-        return next(new Error('faild remove product', { cause: 404 }))
+        return next(new Error('failed remove product', { cause: 404 }))
 
     }
     return res.status(200).json({ message: 'removed' })
