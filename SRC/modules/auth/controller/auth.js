@@ -10,7 +10,7 @@ export const signUP = async (req, res, next) => {
     const { userName, email, password } = req.body
 
     if (await userModel.findOne({ email })) {
-        return next(Error('email already exsist', { cause: 409 }))
+        return next(Error('email already exist', { cause: 409 }))
     }
     //    check email
 
