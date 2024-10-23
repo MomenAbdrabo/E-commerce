@@ -1,4 +1,3 @@
-import mongoose from "mongoose"
 import { cartModel } from "../../../DB/models/cart.model.js"
 import { productModel } from "../../../DB/models/product.model.js"
 import * as cache from "../../../utils/cacheManager.js"

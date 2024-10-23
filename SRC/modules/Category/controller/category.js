@@ -1,4 +1,4 @@
-import { categoryModel } from "../../../DB/models/category.mode.js"
+import { categoryModel } from "../../../DB/models/category.model.js"
 import Cloudinary, { uploader } from "../../../utils/Cloudinary.js"
 import slugify from "slugify"
 

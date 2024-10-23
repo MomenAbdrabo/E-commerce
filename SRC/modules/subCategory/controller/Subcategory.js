@@ -1,4 +1,4 @@
-import { categoryModel } from "../../../DB/models/category.mode.js"
+import { categoryModel } from "../../../DB/models/category.model.js"
 import { SubcategoryModel } from "../../../DB/models/Subcategory.model.js"
 import Cloudinary from "../../../utils/Cloudinary.js"
 import slugify from "slugify"

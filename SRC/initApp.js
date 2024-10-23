@@ -3,7 +3,7 @@ import { connectionDB } from './DB/connection.js'
 import { authRouter } from './modules/auth/auth.router.js'
 import { brandRouter } from './modules/Brand/Brand.router.js'
 import { cartRouter } from './modules/Cart/Cart.router.js'
-import { categorRouter } from './modules/Category/category.router.js'
+import { categoryRouter } from './modules/Category/category.router.js'
 import { couponRouter } from './modules/Coupon/coupon.router.js'
 import { orderRouter } from './modules/Order/order.router.js'
 import { productRouter } from './modules/Product/product.router.js'
@@ -48,9 +48,9 @@ export const initApp = (app) => {
     });
     app.use('/auth', authRouter)
     app.use('/coupon', couponRouter)
-    app.use('/category', categorRouter)
+    app.use('/category', categoryRouter)
     app.use('/brand', brandRouter)
-    app.use('/user', usersRouter)
+    //app.use('/user', usersRouter)
     app.use('/product', productRouter)
     app.use('/cart', cartRouter)
     app.use('/order', orderRouter)
