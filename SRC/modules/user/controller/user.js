@@ -16,7 +16,7 @@ export const updateProfile = async (req, res, next) => {
             return next(new Error(`old userName same new userName`), { cause: 400 })
         }
         if (await userModel.findOne({ userName: req.body.userName })) {
-            return next(new Error(`doublicate catcgory userName ${req.body.userName} `), { cause: 409 })
+            return next(new Error(`doublicate category userName ${req.body.userName} `), { cause: 409 })
         }
         user.userName = req.body.userName
     }
@@ -46,7 +46,7 @@ export const updateProfile = async (req, res, next) => {
             return next(new Error(`ID not founded ${req.user._id} `), { cause: 404 })
         }
         if (await userModel.findOne({ email: req.body.newEmail })) {
-            return next(new Error(`con't doublicate email `), { cause: 400 })
+            return next(new Error(`con't duplicate email `), { cause: 400 })
         }
         if (req.body.newEmail == user.email) {
             return next(new Error(`new email same old email `), { cause: 404 })
