@@ -25,63 +25,64 @@ You can access the Postman documentation for the API at the following link: [Pos
 
 
 ## Tech Stack And Tools✨
-- **Node.js:** A JavaScript runtime built on Chrome's V8 JavaScript engine, used for building scalable network applications.
-- **Express.js:** A fast, unopinionated, minimalist web framework for Node.js, used for building APIs and web applications.
-- **MongoDB:** A NoSQL database used for storing data in a flexible, JSON-like format.
-- **Mongoose:** An Object Data Modeling (ODM) library for MongoDB and Node.js, used to model application data and interact with the database.
 
-- **Redis:** An in-memory data store used as a database and cache to improve application performance and speed up data access.
+- **`Node.js`:** A JavaScript runtime built on Chrome's V8 JavaScript engine, used for building scalable network applications.
+- **`Express.js`:** A fast, unopinionated, minimalist web framework for Node.js, used for building APIs and web applications.
+- **`MongoDB`:** A NoSQL database used for storing data in a flexible, JSON-like format.
+- **`Mongoose`:** An Object Data Modeling (ODM) library for MongoDB and Node.js, used to model application data and interact with the database.
 
-- **Vercel:** A cloud platform for deploying web applications, offering automatic scaling, previews, and global CDN for improved performance.
-- **Stripe:** A payment gateway used to facilitate secure online payments between customers and Admin.
-- **Multer:** A middleware used to handle file uploads in Node.js applications, used to upload images and files to the server.
-- **Cloudinary:** A cloud-based service for managing and storing images and videos, offering APIs for uploading, compressing, and optimizing media. It enhances media processing and supports fast distribution via a Content Delivery Network (CDN).
-- **Nodemailer:** A module used to send emails from the application to users for account verification, order confirmation, and other events.
+- **`Redis`:** An in-memory data store used as a database and cache to improve application performance and speed up data access.
 
-- **Morgan:** An HTTP request logger middleware used to log HTTP requests and responses for debugging and monitoring.
-- **PDFKit:** A JavaScript library for creating PDF documents in Node.js, allowing developers to generate dynamic PDFs with customizable content and layouts.
-- **rateLimit:** A middleware used in web applications to limit the number of requests a user can make to an API within a specified time period, helping to prevent abuse and ensure fair usage of resources.
+- **`Vercel`:** A cloud platform for deploying web applications, offering automatic scaling, previews, and global CDN for improved performance.
+- **`Stripe`:** A payment gateway used to facilitate secure online payments between customers and Admin.
+- **`Multer`:** A middleware used to handle file uploads in Node.js applications, used to upload images and files to the server.
+- **`Cloudinary`:** A cloud-based service for managing and storing images and videos, offering APIs for uploading, compressing, and optimizing media. It enhances media processing and supports fast distribution via a Content Delivery Network (CDN).
+- **`Nodemailer`:** A module used to send emails from the application to users for account verification, order confirmation, and other events.
+
+- **`Morgan`:** An HTTP request logger middleware used to log HTTP requests and responses for debugging and monitoring.
+- **`PDFKit`:** A JavaScript library for creating PDF documents in Node.js, allowing developers to generate dynamic PDFs with customizable content and layouts.
+- **`rateLimit`:** A middleware used in web applications to limit the number of requests a user can make to an API within a specified time period, helping to prevent abuse and ensure fair usage of resources.
 
 
 ## Features
 
 ### Core Features 
-- **User Authentication:** Authenticates users using JWT (JSON Web Tokens).
-- **Redis Integration:** Redis is utilized for caching frequently accessed data and optimizing query performance, ensuring optimal scalability and responsiveness of the application. Implemented cart with Redis server for faster data retrieval.
+- **`User Authentication`:** Authenticates users using JWT (JSON Web Tokens).
+- **`Redis Integration`:** Redis is utilized for caching frequently accessed data and optimizing query performance, ensuring optimal scalability and responsiveness of the application. Implemented cart with Redis server for faster data retrieval.
 
-- **Sales Analysis:** Provides the total order amount within a user-defined period and generates daily reports of the orders along with their total prices.
+- **`Sales Analysis`:** Provides the total order amount within a user-defined period and generates daily reports of the orders along with their total prices.
 
-- **Product Management:** Allows Admin to create, update, and delete products.
+- **`Product Management`:** Allows Admin to create, update, and delete products.
 
-- **Product Listing:** Displays products with details such as name, price, description, and images.
-- **Shopping Cart:** Enables customers to add products to a cart, view the cart, and proceed to checkout.
-- **Order Management:** Allows Admin to manage orders, view order details, and update order status.
-- **Payment Gateway Integration:** Integrates with Stripe for secure online payments between customers and Admin.
-- **User Profile:** Allows users to manage their profiles, update personal information, and view order history.
-- **Search and Filter:** Enables customers to search for products based on keywords, categories, and other criteria.
-- **Product Reviews:** Allows customers to leave reviews and ratings for products.
-- **Order Tracking:** Enables customers to track the status of their orders.
+- **`Product Listing`:** Displays products with details such as name, price, description, and images.
+- **`Shopping Cart`:** Enables customers to add products to a cart, view the cart, and proceed to checkout.
+- **`Order Management`:** Allows Admin to manage orders, view order details, and update order status.
+- **`Payment Gateway Integration`:** Integrates with Stripe for secure online payments between customers and Admin.
+- **`User Profile`:** Allows users to manage their profiles, update personal information, and view order history.
+- **`Search and Filter`:** Enables customers to search for products based on keywords, categories, and other criteria.
+- **`Product Reviews`:** Allows customers to leave reviews and ratings for products.
+- **`Order Tracking`:** Enables customers to track the status of their orders.
 ## Additional Features
 
-- **Email Confirmation Cleanup:** Deletes unconfirmed emails from the database after a period of 15 to 30 days.
+- **`Email Confirmation Cleanup`:** Deletes unconfirmed emails from the database after a period of 15 to 30 days.
 
-- **Email Notifications:** Sends automated email notifications to users for account verification, order confirmation, and other events.
-- **Wishlist Functionality  :** Users can add any product to their wishlist and make changes to their wishlist as needed. If a product is out of stock and a user wishes to purchase it, the user's ID is added to the wishlist associated with that product.
+- **`Email Notifications`:** Sends automated email notifications to users for account verification, order confirmation, and other events.
+- **`Wishlist Functionality`:** Users can add any product to their wishlist and make changes to their wishlist as needed. If a product is out of stock and a user wishes to purchase it, the user's ID is added to the wishlist associated with that product.
 
-- **Logging and Monitoring:** Includes logging functionality using Winston and Morgan to track application behavior and performance.
-- **Error Handling:** Implements error handling mechanisms to catch and handle exceptions gracefully, providing informative error messages to users.
-- **API Documentation:** Provides comprehensive documentation for APIs using tools like Swagger to facilitate code maintenance and collaboration.
-- **Code Version Control:** Utilizes version control systems such as Git to track code changes.
-- **Environment Configuration:** Utilizes environment variables to manage configuration settings and sensitive information, ensuring security and flexibility.
-- **Best Practices & Clean Code:** Follows best practices and clean code principles to ensure code quality, maintainability, and scalability.
+- **`Logging and Monitoring`:** Includes logging functionality using Winston and Morgan to track application behavior and performance.
+- **`Error Handling`:** Implements error handling mechanisms to catch and handle exceptions gracefully, providing informative error messages to users.
+- **`API Documentation`:** Provides comprehensive documentation for APIs using tools like Swagger to facilitate code maintenance and collaboration.
+- **`Code Version Control`:** Utilizes version control systems such as Git to track code changes.
+- **`Environment Configuration`:** Utilizes environment variables to manage configuration settings and sensitive information, ensuring security and flexibility.
+- **`Best Practices & Clean Code`:** Follows best practices and clean code principles to ensure code quality, maintainability, and scalability.
 
 
-## Architecture🏗️
+## Architecture
 
 The backend follows a modular, scalable, and maintainable architecture, Express.js, and MongoDB. The architecture is designed to ensure code reusability, separation of concerns, and scalability to accommodate future growth and changes in the application's requirements.
 
 
-## Database Schema 📊
+## Database Schema📊
 
 The database used for ecommerce is MongoDB, a NoSQL database that stores data in a flexible, JSON-like format.
 
